@@ -105,10 +105,11 @@
 .av-dark .av-lead{color:rgba(247,241,232,.65)}
 .av-bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:260px;gap:18px;margin-top:60px}
 .av-tile{position:relative;border-radius:var(--r);overflow:hidden;background:var(--ink2)}
-.av-tile video{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.av-tile video,.av-tile .cc-video-wrapper{position:absolute;top:0;left:0;width:100%;height:100%}
+.av-tile video{object-fit:cover;transition:transform .8s ease}
 .av-tile:hover video{transform:scale(1.05)}
-.av-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,8,6,.85))}
-.av-tile div{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
+.av-tile::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 45%,rgba(10,8,6,.85))}
+.av-cap{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
 .av-tile h3{font-size:26px;color:var(--cream)}
 .av-tile p{font-size:14px;color:rgba(247,241,232,.75);margin-top:6px;max-width:360px}
 .av-tile em{position:absolute;top:18px;left:18px;z-index:2;font-style:normal;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;color:var(--cream)}
@@ -190,6 +191,7 @@
 .av-who small{display:flex;align-items:center;gap:4px;color:#1f9d55;font-size:12px;font-weight:700}
 .av-who small svg{width:13px;height:13px;fill:#1f9d55}
 .av-vid-review{margin-top:22px;display:grid;grid-template-columns:320px 1fr;gap:40px;align-items:center;background:var(--ink);color:var(--cream);border-radius:28px;padding:28px}
+.av-vid-review .cc-video-wrapper{width:100%}
 .av-vid-review video{width:100%;aspect-ratio:9/12;object-fit:cover;border-radius:18px}
 .av-vid-review blockquote{margin:0;font-family:var(--serif);font-size:clamp(26px,3vw,38px);font-style:italic;font-weight:300;line-height:1.25}
 .av-vid-review cite{display:block;margin-top:20px;font-style:normal;font-size:14px;font-weight:700;color:var(--amber);letter-spacing:.06em}
@@ -288,7 +290,8 @@
   .av-row--head>div{font-size:16px}
   .av-offer .av-wrap{gap:36px}
   .av-vid-review{grid-template-columns:1fr;padding:18px;gap:22px}
-  .av-vid-review video{aspect-ratio:4/5}
+  .av-vid-review .cc-video-wrapper{width:100%}
+.av-vid-review video{aspect-ratio:4/5}
   .av-faq summary{font-size:19px;padding:22px 0}
   .av-faq details p{padding-right:0}
   .av-final{padding:84px 0}
